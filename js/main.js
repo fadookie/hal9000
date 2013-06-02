@@ -32,6 +32,28 @@ function initialize() {
 }
 google.setOnLoadCallback(initialize);
 */
+        
+    meSpeak.loadConfig("mespeak_config.json");
+    meSpeak.loadVoice("voices/en/en.json");
+  
+    /*
+    function loadVoice(id) {
+      var fname="voices/"+id+".json";
+      meSpeak.loadVoice(fname, voiceLoaded);
+    }
+    */
+  
+    /*
+    function voiceLoaded(success, message) {
+      if (success) {
+        alert("Voice loaded: "+message+".");
+      }
+      else {
+        alert("Failed to load a voice: "+message);
+      }
+    }
+    */
+
 
 $( "#speechToTextBox" ).on('input', function() {
     console.log('TextChange');
@@ -45,6 +67,7 @@ $( "#speechToTextBox" ).on('input', function() {
         {
             var contentStrip = $('<p>'+content+'</p>').text();
             console.log(contentStrip);
+            meSpeak.speak(contentStrip);
         } else {
             console.log("no content found.");
         }
