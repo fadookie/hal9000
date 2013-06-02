@@ -11,6 +11,7 @@ $( "#speechToTextBox" ).on('input', function() {
         {
             var contentStrip = $('<p>'+content+'</p>').text();
             console.log(data.responseData.results[0].url + " " + contentStrip);
+            $( "#console" ).append('<p>HAL: ' + contentStrip + '</p>');
             meSpeak.speak(contentStrip);
         } else {
             console.log("no content found.");
